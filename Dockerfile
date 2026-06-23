@@ -19,6 +19,9 @@ RUN npm prune --production
 # ── Stage 2: Runtime ─────────────────────────────────────────────────────────
 FROM node:20-alpine AS runtime
 
+# Dumb-init for correct signal handling (PID 1) — install as root before dropping privileges
+RUN apk add --no-cache dumb-init
+
 # Security: run as non-root user
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
@@ -34,12 +37,9 @@ USER appuser
 
 EXPOSE 3000
 
-# Dumb-init for correct signal handling (PID 1)
-RUN apk add --no-cache dumb-init
-
 ENTRYPOINT ["dumb-init", "--"]
 CMD ["node", "dist/index.js"]
 
 # Health check baked into the image
 HEALTHCHECK --interval=15s --timeout=5s --start-period=20s --retries=3 \
-  CMD wget -qO- http://localhost:3000/healthz || exit 1
+CMD wget -qO- http://localhost:3000/healthz || exit 1

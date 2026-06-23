@@ -7,7 +7,7 @@ export function validateCreateBook(
   next: NextFunction
 ): void {
   const required = [
-    "title", "author", "image", "description", "genre",
+    "title", "author", "description", "genre",
     "price", "rating", "pages", "language",
     "publisher", "publishedYear", "isbn",
   ];

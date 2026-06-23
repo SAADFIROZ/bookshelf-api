@@ -22,7 +22,7 @@ function rowToBook(row: Record<string, unknown>): Book {
 export const BookRepository = {
   async findAll(): Promise<Book[]> {
     const { rows } = await pool.query("SELECT * FROM books ORDER BY id ASC");
-    return rows.map(rowToBook);
+    return rows.length ? rows.map(rowToBook): [];
   },
 
   async findById(id: number): Promise<Book | null> {

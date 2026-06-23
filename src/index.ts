@@ -9,7 +9,7 @@ const PORT = parseInt(process.env.PORT || "3000", 10);
 
 app.use(express.json());
 
-// Health probes
+// Health check
 app.get("/healthz", (_req, res) => res.json({ status: "ok" }));
 app.get("/readyz", async (_req, res) => {
   try {
@@ -30,7 +30,7 @@ app.get("/", (_req: Request, res: Response) => {
 async function bootstrap() {
   await connectDB();
   await migrate();
-  app.listen(PORT, () => console.log(`🚀 Bookshelf API running on port ${PORT}`));
+  app.listen(PORT, () => console.log(`Bookshelf API running on port ${PORT}`));
 }
 
 bootstrap().catch((err) => {
