@@ -1,23 +1,19 @@
-# Bookshelf API (Kubernetes, DevOps & FinOps Assignment - NAGP 2026)
+# Home Assignment - Kubernetes, DevOps & FinOps (NAGP 2026 Technology Band III Batch)
 
-## Code Repository
+GitHub Code Repository Link: https://github.com/SAADFIROZ/bookshelf-api
 
-GitHub Repository: https://github.com/SAADFIROZ/bookshelf-api
+Docker Hub Repository URL: https://hub.docker.com/r/saad9375/bookshelf-api 
 
-## Docker Image
-
-Docker Hub Repository: https://hub.docker.com/r/saad9375/bookshelf-api 
 Docker Image: saad9375/bookshelf-api:v2
 
-## Service API URL
-
 Ingress URL For Api Endpoint: http://8.233.205.198/books 
-This endpoint retrieves records from the PostgreSQL backend database.
 
-## Screen Recording Video
+Additional Information
 
-Screen Recording Link:
+Note:
 
+All Kubernetes manifest files (.yaml) are present inside the kubernetes/ folder.
+The assignment documentation PDF is available inside the docs/ folder.
 
 
 
